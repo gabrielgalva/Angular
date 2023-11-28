@@ -1,0 +1,21 @@
+<div class="list-container">
+
+<h2 >Lista de Itens: Atividade 2 e 3</h2>
+
+
+
+<form (ngSubmit)="addItem()">
+    <input type="text" name="newItem" [(ngModel)]="newItem" maxlength="100" required>
+    <button type="submit">Add</button>
+  </form>
+  
+  <ul>
+    <li *ngFor="let item of items; let i = index" [ngClass]="{ 'completed': item.completed }">
+      <span>{{ item.text }}</span>
+      <div>
+        <button class="but" (click)="completeItem(i)">Check</button>
+        <button (click)="removeItem(i)">Delete</button>
+      </div>
+    </li>
+  </ul>
+</div>
